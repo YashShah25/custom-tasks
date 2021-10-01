@@ -8,7 +8,7 @@
     "depends": ["base"],
     "license": "AGPL-3",
     "data": [
-        "data/menu_demo.xml",
+        "data/product_menu.xml",
     ],
     "auto_install": False,
     "installable": True,

@@ -1,12 +1,9 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    background-color: red;
-}
+
 .contacts_list_wrapper{
     width: 70%;
     margin: auto;
     padding: 30px 0px;
+
 }
 .contact_list_tbl{
     width: 100%;

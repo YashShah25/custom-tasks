@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<template id="product_detail_form">
+		<t t-call="website.layout">
+			<t t-set="title">Product Form</t>
+			<div class="oe_structure pqr my-flex flex-container-form position_price">
+				<div class="abc">
+						<h1>
+							<t t-esc="product_data.name"/>
+						</h1>
+						<span>
+							<pre>Product Type : <span t-esc="product_data.type"/>		Quantity On Hand : <span t-esc="product_data.qty_available"/></pre>
+						</span>
+						Product Type : <t t-esc="product_data.categ_id.name"/>
+						<table class="table-sm">
+							<thead style="display: table-row-group">
+								<tr>
+									<th name="heading" class="text-center">Product Varients:</th>
+								</tr>
+								<tr>
+									<th name="name" class="text-left">Attribute</th>
+									<th name="value" class="text-left">Values</th>
+								</tr>
+							</thead>
+							<t t-foreach="product_data.attribute_line_ids" t-as="line">
+								<tbody class="sale_tbody">
+									<tr>
+										<td name="varient">
+											<t t-esc="line.attribute_id.name"/>
+										</td>
+
+										<td t-foreach="line.value_ids" t-as="values">
+											<t t-esc="values.name"/>
+										</td>
+									</tr>
+								</tbody>
+								<br/>
+							</t>
+						</table>
+						<h3>Price : <t t-esc="product_data.list_price"/></h3>
+					</div>
+				<div class="xyz">
+					<span class="product_image" t-field="product_data.image_1920" t-options='{"widget":"image"}'/>
+				</div>
+			</div>
+		</t>
+	</template>
+</odoo>

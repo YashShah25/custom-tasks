@@ -8,8 +8,8 @@
     "depends": ["website"],
     "license": "AGPL-3",
     "data": [
-        "data/menu_demo.xml",
-        "views/demo_template.xml",
+        "data/product_menu.xml",
+        "views/product_template_list.xml",
         "views/assets.xml",
     ],
     "auto_install": False,
