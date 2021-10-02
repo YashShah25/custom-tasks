@@ -3,25 +3,21 @@
 	<template id="product_detail_list">
 		<t t-call="website.layout">
 			<t t-set="title">Product List</t>
-			<div class="oe_structure my-flex flex-container-list">
+			<div class="oe_structure my_flex flex_container_list">
 				<t t-foreach="product_list" t-as="pd">
-					<div class="my-flex flex-container ">
-						<a href="/product/info">
-							<div>
-								<span class="my-flex product_image_wrapper" t-field="pd.image_1920" t-options='{"widget":"image"}'/>
-							</div>
-						</a>
-
+					<a t-attf-href="/product/info/#{pd.id}" class="my_flex flex_container col-sm-5 col-md-3">
 						<div>
-							Name:
-							<a t-attf-href="/product/info/#{pd.id}">
-								<t t-esc="pd.name"/>
-							</a>
-							<br/>
-							Quantity On Hand:
-							<t t-esc="pd.qty_available"/>
+							<span class="my_flex my_product_image_wrapper" t-field="pd.image_1920" t-options='{"widget":"image"}'/>
 						</div>
-					</div>
+						<div>
+							<h5>
+								<t t-esc="pd.name"/>
+							</h5>
+							<span>
+								$&#160;<t t-esc="pd.list_price"/>
+							</span>
+						</div>
+					</a>
 				</t>
 			</div>
 		</t>

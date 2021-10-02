@@ -13,9 +13,9 @@
     # always load
     "data": [
         "data/product_menu.xml",
-        "views/assets.xml",
         "views/product_template_list.xml",
         "views/product_template_form.xml",
+        "views/assets.xml",
     ],
     "demo": [],
     "auto_install": False,

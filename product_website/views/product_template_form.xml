@@ -3,46 +3,84 @@
 	<template id="product_detail_form">
 		<t t-call="website.layout">
 			<t t-set="title">Product Form</t>
-			<div class="oe_structure pqr my-flex flex-container-form position_price">
-				<div class="abc">
-						<h1>
-							<t t-esc="product_data.name"/>
-						</h1>
-						<span>
-							<pre>Product Type : <span t-esc="product_data.type"/>		Quantity On Hand : <span t-esc="product_data.qty_available"/></pre>
-						</span>
-						Product Type : <t t-esc="product_data.categ_id.name"/>
-						<table class="table-sm">
-							<thead style="display: table-row-group">
-								<tr>
-									<th name="heading" class="text-center">Product Varients:</th>
-								</tr>
-								<tr>
-									<th name="name" class="text-left">Attribute</th>
-									<th name="value" class="text-left">Values</th>
-								</tr>
-							</thead>
-							<t t-foreach="product_data.attribute_line_ids" t-as="line">
-								<tbody class="sale_tbody">
-									<tr>
-										<td name="varient">
-											<t t-esc="line.attribute_id.name"/>
-										</td>
-
-										<td t-foreach="line.value_ids" t-as="values">
-											<t t-esc="values.name"/>
-										</td>
-									</tr>
-								</tbody>
-								<br/>
-							</t>
-						</table>
-						<h3>Price : <t t-esc="product_data.list_price"/></h3>
-					</div>
-				<div class="xyz">
+			<div class="my_flex flex_container_form overflow">
+				<div class="center">
 					<span class="product_image" t-field="product_data.image_1920" t-options='{"widget":"image"}'/>
+				</div>
+				<div class="height overflow">
+					<h1>
+						<t t-esc="product_data.name"/>
+					</h1>
+					<pre>Product Type&#160;:&#160;<t
+							t-esc="product_data.type"/>&#160;&#160;&#160;&#160;&#160;&#160;Product Category&#160;:&#160;<t t-esc="product_data.categ_id.name"/>&#160;
+					</pre>
+					<span>
+						Quantity On Hand&#160;:&#160;<t
+							t-esc="product_data.qty_available"/>&#160;
+					</span>
+					<br/>
+					<br/>
+<!--					<h4>-->
+<!--					<span t-esc="product_data.list_price" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>-->
+					<!--					</h4>-->
+					<br/>
+					<li>
+						<strong>Legs</strong>
+						<ul class="list-unstyled ">
+							<li style="margin: 0;">
+								<t t-foreach="product_data.attribute_line_ids" t-as="line">
+									<t t-if="line.attribute_id.name == 'Legs'">
+										<t t-foreach="line.value_ids" t-as="values">
+											<label class="col-form-label">
+												<input type="radio" name="legs"/>
+												<t t-esc="values.name"/>&#160;&#160;&#160;&#160;
+											</label>
+										</t>
+									</t>
+								</t>
+							</li>
+						</ul>
+					</li>
+					<br/>
+					<li>
+						<strong>Color</strong>
+						<ul class="list-unstyled ">
+							<li style="margin: 0;">
+								<t t-foreach="product_data.attribute_line_ids" t-as="line">
+									<t t-if="line.attribute_id.name == 'Color'">
+										<t t-foreach="line.value_ids" t-as="values">
+											<label class="col-form-label">
+												<input type="radio" name="color"/>
+												<t t-esc="values.name"/>&#160;&#160;&#160;&#160;
+											</label>
+										</t>
+									</t>
+								</t>
+							</li>
+						</ul>
+
+					</li>
+					<br/>
+					<li>
+						<strong>Duration</strong>
+						<ul class="list-unstyled ">
+							<li style="margin: 0;">
+								<t t-foreach="product_data.attribute_line_ids" t-as="line">
+									<t t-if="line.attribute_id.name == 'Duration'">
+										<t t-foreach="line.value_ids" t-as="values">
+											<label class="col-form-label">
+												<input type="radio" name="duration"/>
+												<t t-esc="values.name"/>&#160;&#160;&#160;&#160;
+											</label>
+										</t>
+									</t>
+								</t>
+							</li>
+						</ul>
+					</li>
 				</div>
 			</div>
 		</t>
 	</template>
 </odoo>
+
