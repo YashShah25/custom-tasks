@@ -20,64 +20,86 @@
 					</span>
 					<br/>
 					<br/>
-<!--					<h4>-->
-<!--					<span t-esc="product_data.list_price" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>-->
-					<!--					</h4>-->
+					<h4>
+						<t t-esc="product_data.list_price" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+					</h4>
 					<br/>
-					<li>
-						<strong>Legs</strong>
-						<ul class="list-unstyled ">
-							<li style="margin: 0;">
-								<t t-foreach="product_data.attribute_line_ids" t-as="line">
-									<t t-if="line.attribute_id.name == 'Legs'">
+					<t t-foreach="product_data.attribute_line_ids" t-as="line">
+						<t t-if="line.attribute_id.name == 'Legs'">
+							<li>
+								<strong>Legs</strong>
+								<ul class="list-unstyled ">
+									<li style="margin: 0;">
 										<t t-foreach="line.value_ids" t-as="values">
-											<label class="col-form-label">
-												<input type="radio" name="legs"/>
-												<t t-esc="values.name"/>&#160;&#160;&#160;&#160;
-											</label>
+											<t t-if="values.name == 'Steel'">
+												<input type="radio" name="legs" id="steel" class="radio_input"/>
+												<label for="steel">
+													<img src="/product_website/static/src/my_img/steel_icon.png" class="radio_item_img"/>
+												</label>
+											</t>
+											<t t-if="values.name == 'Aluminium'">
+												<input type="radio" name="legs" id="aluminium" class="radio_input"/>
+												<label for="aluminium">
+													<img src="/product_website/static/src/my_img/al_icon.png" class="radio_item_img"/>
+												</label>
+											</t>
+											<t t-if="values.name == 'Custom'">
+												<input type="radio" name="legs" id="custom" class="radio_input"/>
+												<label for="custom">
+													<img src="/product_website/static/src/my_img/custom_icon.png" class="radio_item_img"/>
+												</label>
+											</t>
 										</t>
-									</t>
-								</t>
+									</li>
+								</ul>
 							</li>
-						</ul>
-					</li>
+						</t>
+					</t>
 					<br/>
-					<li>
-						<strong>Color</strong>
-						<ul class="list-unstyled ">
-							<li style="margin: 0;">
-								<t t-foreach="product_data.attribute_line_ids" t-as="line">
-									<t t-if="line.attribute_id.name == 'Color'">
+					<t t-foreach="product_data.attribute_line_ids" t-as="line">
+						<t t-if="line.attribute_id.name == 'Color'">
+							<li>
+								<strong>Color</strong>
+								<ul class="list-unstyled ">
+									<li style="margin: 0;">
 										<t t-foreach="line.value_ids" t-as="values">
-											<label class="col-form-label">
-												<input type="radio" name="color"/>
-												<t t-esc="values.name"/>&#160;&#160;&#160;&#160;
-											</label>
+											<t t-if="values.name == 'White'">
+												<input type="radio" name="color" id="white" class="radio_input"/>
+												<label for="white" class="col-form-label">
+													<div class="radio_item_div" style="background-color: #fff;"/>
+												</label>
+											</t>
+											<t t-if="values.name == 'Black'">
+												<input type="radio" name="color" id="black" class="radio_input"/>
+												<label for="black" class="col-form-label">
+													<div class="radio_item_div" style="background-color: #000;"/>
+												</label>
+											</t>
 										</t>
-									</t>
-								</t>
+									</li>
+								</ul>
 							</li>
-						</ul>
-
-					</li>
+						</t>
+					</t>
 					<br/>
-					<li>
-						<strong>Duration</strong>
-						<ul class="list-unstyled ">
-							<li style="margin: 0;">
-								<t t-foreach="product_data.attribute_line_ids" t-as="line">
-									<t t-if="line.attribute_id.name == 'Duration'">
+					<t t-foreach="product_data.attribute_line_ids" t-as="line">
+						<t t-if="line.attribute_id.name == 'Duration'">
+							<li>
+								<strong>Duration</strong>
+								<ul class="list-unstyled ">
+									<li style="margin: 0;">
+										\
 										<t t-foreach="line.value_ids" t-as="values">
 											<label class="col-form-label">
 												<input type="radio" name="duration"/>
 												<t t-esc="values.name"/>&#160;&#160;&#160;&#160;
 											</label>
 										</t>
-									</t>
-								</t>
+									</li>
+								</ul>
 							</li>
-						</ul>
-					</li>
+						</t>
+					</t>
 				</div>
 			</div>
 		</t>

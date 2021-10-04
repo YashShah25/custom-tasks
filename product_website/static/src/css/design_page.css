@@ -7,6 +7,7 @@
     align-items: center;
     background-color: #fff;
     padding: 3px;
+    flex-wrap: wrap;
 }
 .flex_container_form {
     margin: 10px 20px;
@@ -28,6 +29,7 @@
     margin: 10px 15px;
 }
 .my_product_image{
+    padding: 5px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -46,4 +48,34 @@ h3.position_price{
 a:hover {
     background-color: lightgrey;
     text-decoration: none;
+}
+.radio_item_img {
+    padding: 1px;
+    margin: 1px;
+    width: 55px;
+}
+.radio_item_img:hover {
+    width: 55px;
+    border: solid;
+}
+.radio_input {
+  display: none !important;
+}
+
+.radio_input:checked + label{
+  opacity: 1;
+  border: double;
+}
+
+.radio_item_div {
+    padding: 1px;
+    margin: 1px;
+    width: 42px;
+    height: 42px;
+    border: solid lightgrey;
+}
+.radio_item_div:hover {
+    width: 44px;
+    height: 44px;
+    border: solid black;
 }

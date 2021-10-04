@@ -12,6 +12,8 @@ class ProductList(http.Controller):
         return request.render(
             "product_website.product_detail_list", {"product_list": product_list}
         )
+
+
 class ProductData(http.Controller):
     @http.route(
         "/product/info/<model('product.template'):product>",
